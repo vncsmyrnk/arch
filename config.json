@@ -1,0 +1,89 @@
+{
+  "additional-repositories": [],
+  "archinstall-language": "English",
+  "audio_config": {
+    "server": "pipewire",
+    "additional_packages": [
+      "pulseaudio",
+      "pipewire-pulse"
+    ]
+  },
+  "bootloader": "grub",
+  "config_version": "2.6.0",
+  "debug": false,
+  "disk_config": {
+    "config_type": "manual_partitioning",
+    "device_modifications": [
+      {
+        "device": "/dev/sda",
+        "partitions": [
+          {
+            "mountpoint": "/boot",
+            "size": "512M",
+            "type": "primary",
+            "filesystem": "ext4",
+            "flags": [
+              "boot"
+            ]
+          },
+          {
+            "mountpoint": "[SWAP]",
+            "size": "2G",
+            "type": "primary",
+            "filesystem": "linux-swap"
+          },
+          {
+            "mountpoint": "/",
+            "size": "100%",
+            "type": "primary",
+            "filesystem": "ext4"
+          }
+        ],
+        "wipe": true
+      }
+    ]
+  },
+  "hostname": "myarch",
+  "kernels": [
+    "linux"
+  ],
+  "locale_config": {
+    "kb_layout": "br-abnt",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_US"
+  },
+  "mirror_config": {
+    "custom_mirrors": [],
+    "mirror_regions": {
+      "Brazil": [
+        "http://arch.mirror.constant.com/$repo/os/$arch",
+        "https://archlinux.thaller.ws/$repo/os/$arch",
+        "https://mirror.moson.org/arch/$repo/os/$arch",
+        "http://archlinux.thaller.ws/$repo/os/$arch",
+        "http://mirror.moson.org/arch/$repo/os/$arch"
+      ]
+    }
+  },
+  "network_config": {},
+  "no_pkg_lookups": false,
+  "ntp": true,
+  "offline": false,
+  "packages": [
+    "kitty",
+    "yay",
+    "base",
+    "base-devel",
+    "just",
+    "google-chrome"
+  ],
+  "parallel downloads": 0,
+  "profile_config": {
+    "profile": "gnome",
+    "additional_packages": []
+  },
+  "script": "guided",
+  "silent": false,
+  "swap": true,
+  "timezone": "America/Sao_Paulo",
+  "version": "2.6.0"
+}
