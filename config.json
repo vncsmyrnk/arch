@@ -68,18 +68,20 @@
   "no_pkg_lookups": false,
   "ntp": true,
   "offline": false,
-  "packages": [
-    "kitty",
-    "yay",
-    "base",
-    "base-devel",
-    "just",
-    "google-chrome"
-  ],
+  "packages": [],
   "parallel downloads": 0,
   "profile_config": {
     "profile": "gnome",
-    "additional_packages": []
+    "additional_packages": [
+      "kitty",
+      "yay",
+      "git",
+      "neovim",
+      "base",
+      "base-devel",
+      "just",
+      "google-chrome"
+    ]
   },
   "script": "guided",
   "silent": false,
