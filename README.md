@@ -12,7 +12,7 @@ Useful information about arch config and utilities.
 ```bash
 curl -LO https://raw.githubusercontent.com/vncsmyrnk/arch/refs/heads/main/install.sh
 chmod +x install.sh
-./install.sh
+MY_PASSWORD=password MY_ROOT_PASSWORD=root_password ./install.sh
 ```
 
 ## Installation caveats
