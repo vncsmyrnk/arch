@@ -10,7 +10,9 @@ Useful information about arch config and utilities.
 ## Archinstall
 
 ```bash
-sh <(curl -L https://raw.githubusercontent.com/vncsmyrnk/arch/refs/heads/main/install.sh)
+curl -LO https://raw.githubusercontent.com/vncsmyrnk/arch/refs/heads/main/install.sh
+chmod +x install.sh
+./install.sh
 ```
 
 ## Installation caveats
