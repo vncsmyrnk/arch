@@ -155,7 +155,11 @@ pacman -S base base-devel \
   neovim just google-chrome
 
 # Final steps
-echo "Everything OK. Rebooting..."
+echo "All Done. Everything OK"
+read -p "Reboot? (Y/n): " reboot
+if [[ "$(to_lower "$reboot")" != "n" ]]; then
+  exit 0
+fi
 
 # Unmount everything
 umount -R /mnt
