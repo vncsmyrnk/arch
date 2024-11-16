@@ -14,9 +14,10 @@ echo -e "SWAP_SIZE_MIB: $MY_SWAP_SIZE_MIB"
 echo -e "HOSTNAME.....: $MY_HOSTNAME"
 echo -e "USERNAME.....: $MY_USERNAME"
 echo -e "PASSWORD.....: $MY_PASSWORD\n"
+echo -e "ROOT_PASSWORD: $MY_ROOT_PASSWORD\n"
 
-if [ -z "$MY_PASSWORD" ]; then
-  echo "Please specify a password via \$MY_PASSWORD variable"
+if [ -z "$MY_PASSWORD" ] || [ -z "$MY_ROOT_PASSWORD" ]; then
+  echo "Please specify a user and root password via \$MY_PASSWORD and \$MY_ROOT_PASSWORD variables, respectively."
   exit 1
 fi
 
@@ -120,7 +121,7 @@ EOF
 mkinitcpio -P
 
 # Sets root password
-passwd
+echo "root:$MY_ROOT_PASSWORD" | sudo chpasswd
 
 # Boot loader
 # Rerefence: https://wiki.archlinux.org/title/GRUB
