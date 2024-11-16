@@ -8,6 +8,10 @@ MY_SWAP_SIZE_MIB=8192
 MY_HOSTNAME=myarch
 MY_USERNAME=vncsmyrnk
 
+to_lower() {
+  echo "$1" | tr '[:upper:]' '[:lower:]'
+}
+
 echo -e "-- Current setup --"
 echo -e "DEVICE.......: $MY_DEVICE"
 echo -e "SWAP_SIZE_MIB: $MY_SWAP_SIZE_MIB"
@@ -22,8 +26,7 @@ if [ -z "$MY_PASSWORD" ] || [ -z "$MY_ROOT_PASSWORD" ]; then
 fi
 
 read -p "This script will wipe the device and install arch. Continue? (y/N): " choice
-choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')
-if [[ "$choice" != "y" ]]; then
+if [[ "$(to_lower "$choice")" != "y" ]]; then
   echo "Aborted."
   exit 0
 fi
