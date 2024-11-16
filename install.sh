@@ -6,6 +6,26 @@
 MY_DEVICE=/dev/sda
 MY_SWAP_SIZE_MIB=8192
 MY_HOSTNAME=myarch
+MY_USERNAME=vncsmyrnk
+
+echo -e "-- Current setup --"
+echo -e "DEVICE.......: $MY_DEVICE"
+echo -e "SWAP_SIZE_MIB: $MY_SWAP_SIZE_MIB"
+echo -e "HOSTNAME.....: $MY_HOSTNAME"
+echo -e "USERNAME.....: $MY_USERNAME"
+echo -e "PASSWORD.....: $MY_PASSWORD\n"
+
+if [ -z "$MY_PASSWORD" ]; then
+  echo "Please specify a password via \$MY_PASSWORD variable"
+  exit 1
+fi
+
+read -p "This script will wipe the device and install arch. Continue? (y/N): " choice
+choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')
+if [[ "$choice" != "y" ]]; then
+  echo "Aborted."
+  exit 0
+fi
 
 # Sets keyboard layout; `localectl list-keymaps` to see more
 echo "Setting keyboard layout..."
