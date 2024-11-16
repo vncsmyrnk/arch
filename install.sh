@@ -155,6 +155,10 @@ pacman -S base base-devel networkmanager \
   docker docker-buildx \
   neovim just google-chrome
 
+# Enables services
+
+systemctl enable systemd-networkd NetworkManager gdm
+
 # Final steps
 echo "All Done. Everything OK"
 read -p "Reboot? (Y/n): " reboot
