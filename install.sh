@@ -113,10 +113,19 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # User
-# TODO: creates user on wheel group
 
 # Creates user
-sudo useradd -m -G wheel -s /bin/bash $USERNAME
+useradd -m -G wheel $USERNAME
+
+# Enables sudo for the wheel group
+sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+
+# Install additional packages
+
+pacman -S base base-devel \
+  kitty yay git \
+  docker docker-buildx \
+  neovim just google-chrome
 
 # Final steps
 echo "Everything OK. Rebooting..."
