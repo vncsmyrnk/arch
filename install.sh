@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 CREDS_FILE=https://raw.githubusercontent.com/vncsmyrnk/arch/creds.json.enc
 CONFIG_FILE=https://raw.githubusercontent.com/vncsmyrnk/arch/config.json
