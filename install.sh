@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Performs arch linux installation
-# Reference: https://wiki.archlinux.org/title/Installation_guide
+# INFO: https://wiki.archlinux.org/title/Installation_guide
 
 MY_DEVICE=/dev/sda
 MY_SWAP_SIZE_MIB=8192
@@ -32,7 +32,7 @@ echo "Setting keyboard layout..."
 loadkeys br-abnt
 
 # Disk partition
-# Reference: https://wiki.archlinux.org/title/EFI_system_partition
+# INFO: https://wiki.archlinux.org/title/EFI_system_partition
 echo "Partitioning disk..."
 
 # Creates GPT partition table
