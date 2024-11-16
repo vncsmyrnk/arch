@@ -2,9 +2,10 @@
 
 Useful information about arch config and utilities.
 
-## Wiki
+## Useful links
 
-https://wiki.archlinux.org/title/Main_page
+- [Wiki](https://wiki.archlinux.org/title/Main_page)
+- [ISOs](https://archlinux.org/download/)
 
 ## Archinstall
 
