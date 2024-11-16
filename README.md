@@ -6,6 +6,12 @@ Useful information about arch config and utilities.
 
 https://wiki.archlinux.org/title/Main_page
 
+## Archinstall
+
+```bash
+sh <(curl -L https://raw.githubusercontent.com/vncsmyrnk/arch/refs/heads/main/install.sh)
+```
+
 ## Installation caveats
 
 ### Networking
