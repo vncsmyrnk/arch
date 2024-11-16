@@ -134,8 +134,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # User
 
-# Creates user
-useradd -m -G wheel $USERNAME
+# Creates the user and adds it to the wheel group
+useradd -m -G wheel -s /bin/bash $MY_USERNAME
+
+# Sets the users password
+echo "$MY_USERNAME:$MY_PASSWORD" | chpasswd
 
 # Enables sudo for the wheel group
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
