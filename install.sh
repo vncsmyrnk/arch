@@ -149,7 +149,8 @@ sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 # Install additional packages
 
-pacman -S base base-devel \
+pacman -S base base-devel networkmanager \
+  gnome gdm \
   kitty yay git \
   docker docker-buildx \
   neovim just google-chrome
