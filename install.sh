@@ -16,35 +16,35 @@ loadkeys br-abnt
 echo "Partitioning disk..."
 
 # Creates GPT partition table
-parted /dev/sda --script mklabel gpt
+parted "$MY_DEVICE" --script mklabel gpt
 
 # sda1 /boot EFI
-parted /dev/sda --script mkpart ESP fat32 1MiB 513MiB
-parted /dev/sda --script set 1 boot on
+parted "$MY_DEVICE" --script mkpart ESP fat32 1MiB 513MiB
+parted "$MY_DEVICE" --script set 1 boot on
 
 # sda2 swap
-parted /dev/sda --script mkpart primary linux-swap 513MiB $(($MY_SWAP_SIZE_MIB+513))MiB
+parted "$MY_DEVICE" --script mkpart primary linux-swap 513MiB $(($MY_SWAP_SIZE_MIB+513))MiB
 
 # sda3 /
-parted /dev/sda --script mkpart primary ext4 4609MiB 100%
+parted "$MY_DEVICE" --script mkpart primary ext4 4609MiB 100%
 
 # Formats the EFI System Partition (ESP)
-mkfs.fat -F32 /dev/sda1
+mkfs.fat -F32 "$MY_DEVICE"1
 
 # Formats the root (/) partition
-mkfs.ext4 /dev/sda3
+mkfs.ext4 "$MY_DEVICE"3
 
 # Formats the swap partition
-mkswap /dev/sda2
+mkswap "$MY_DEVICE"2
 
 # Enables the swap partition
-swapon /dev/sda2
+swapon "$MY_DEVICE"2
 
 # Mounts the root partition
-mount /dev/sda3 /mnt
+mount "$MY_DEVICE"3 /mnt
 
 # Mounts the EFI partition
-mount --mkdir /dev/sda1 /mnt/boot
+mount --mkdir "$MY_DEVICE"1 /mnt/boot
 
 # Install essential packages
 echo "Installing essential packages..."
