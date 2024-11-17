@@ -27,7 +27,7 @@ echo -e "DEVICE.......: $MY_DEVICE"
 echo -e "SWAP_SIZE_MIB: $MY_SWAP_SIZE_MIB"
 echo -e "HOSTNAME.....: $MY_HOSTNAME"
 echo -e "USERNAME.....: $MY_USERNAME"
-echo -e "PASSWORD.....: $MY_PASSWORD\n"
+echo -e "PASSWORD.....: $MY_PASSWORD"
 echo -e "ROOT_PASSWORD: $MY_ROOT_PASSWORD\n"
 
 if [ -z "$MY_PASSWORD" ] || [ -z "$MY_ROOT_PASSWORD" ]; then
