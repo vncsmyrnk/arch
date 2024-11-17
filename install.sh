@@ -12,6 +12,16 @@ to_lower() {
   echo "$1" | tr '[:upper:]' '[:lower:]'
 }
 
+prompt_for_package_installation() {
+  for package in "$@"; do
+    read -p "Install $package? (Y/n): " install
+    if [[ "$(to_lower "$install")" == "n" ]]; then
+      continue
+    fi
+    pacman -S $package
+  done
+}
+
 echo -e "-- Current setup --"
 echo -e "DEVICE.......: $MY_DEVICE"
 echo -e "SWAP_SIZE_MIB: $MY_SWAP_SIZE_MIB"
@@ -101,7 +111,7 @@ hwclock --systohc
 # Localization
 
 # Uses en_US.UTF-8
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 cat <<EOF > /etc/locale.conf
 LANG=en_US.UTF-8
 EOF
@@ -154,6 +164,9 @@ pacman -S base base-devel networkmanager \
   kitty yay git \
   docker docker-buildx \
   neovim just google-chrome
+
+prompt_for_package_installation mesa \
+  xf86-video-amdgpu intel-ucode
 
 # Enables services
 
