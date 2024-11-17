@@ -158,12 +158,15 @@ pacman -Syu --noconfirm base base-devel sudo networkmanager \
   docker docker-buildx \
   xf86-video-amdgpu intel-ucode
 
-# Installs yay
-git clone https://aur.archlinux.org/yay.git /home/$MY_USERNAME
-(cd /home/$MY_USERNAME && makepkg -si)
-
 # Enables sudo for the wheel group
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+
+# Installs yay
+sudo -u $MY_USERNAME /bin/bash <<EOF
+cd /home/$MY_USERNAME
+git clone https://aur.archlinux.org/yay-bin.git
+(cd yay-bin && makepkg -si --noconfirm)
+EOF
 
 # Enables services
 systemctl enable systemd-networkd NetworkManager gdm
