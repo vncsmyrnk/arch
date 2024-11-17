@@ -106,6 +106,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # "Change root into the new system"
 # Runs all of the following in it
 arch-chroot /mnt /bin/bash <<EOFF
+set -e
+
 # Sets the timezone and clock
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 hwclock --systohc
