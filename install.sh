@@ -174,7 +174,7 @@ EOFF
 
 # Final steps
 echo "All Done. Everything OK"
-read -p "Reboot? (Y/n): " reboot
+read -p "Unmount and reboot? (Y/n): " reboot
 if [[ "$(to_lower "$reboot")" -= "n" ]]; then
   exit 0
 fi
