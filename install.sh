@@ -87,11 +87,11 @@ echo "Installing essential packages..."
 
 # Uses the closest mirrors; can later be updated with `reflector`
 cat <<EOF > /etc/pacman.d/mirrorlist
-Server = http://arch.mirror.constant.com/$repo/os/$arch
-Server = https://archlinux.thaller.ws/$repo/os/$arch
-Server = https://mirror.moson.org/arch/$repo/os/$arch
-Server = http://archlinux.thaller.ws/$repo/os/$arch
-Server = http://mirror.moson.org/arch/$repo/os/$arch
+Server = http://arch.mirror.constant.com/\$repo/os/\$arch
+Server = https://archlinux.thaller.ws/\$repo/os/\$arch
+Server = https://mirror.moson.org/arch/\$repo/os/\$arch
+Server = http://archlinux.thaller.ws/\$repo/os/\$arch
+Server = http://mirror.moson.org/arch/\$repo/os/\$arch
 EOF
 
 # Installs essential stuff
