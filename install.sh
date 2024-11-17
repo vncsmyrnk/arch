@@ -130,7 +130,7 @@ EOF
 mkinitcpio -P
 
 # Sets root password
-echo "root:$MY_ROOT_PASSWORD" | sudo chpasswd
+echo "root:$MY_ROOT_PASSWORD" | chpasswd
 
 # Boot loader
 # Rerefence: https://wiki.archlinux.org/title/GRUB
