@@ -154,11 +154,8 @@ echo "$MY_USERNAME:$MY_PASSWORD" | chpasswd
 # Installs additional packages
 pacman -Syu --noconfirm gnome gdm
 pacman -Syu --noconfirm base base-devel sudo networkmanager \
-  kitty yay git \
+  kitty git neovim just \
   docker docker-buildx \
-  neovim just google-chrome
-
-prompt_for_package_installation mesa \
   xf86-video-amdgpu intel-ucode
 
 # Installs yay
