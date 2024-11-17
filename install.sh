@@ -135,7 +135,7 @@ mkinitcpio -P
 echo "root:$MY_ROOT_PASSWORD" | chpasswd
 
 # Boot loader
-# Rerefence: https://wiki.archlinux.org/title/GRUB
+# INFO: https://wiki.archlinux.org/title/GRUB
 echo "Setting up GRUB..."
 
 # Installs GRUB
