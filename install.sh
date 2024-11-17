@@ -22,6 +22,8 @@ prompt_for_package_installation() {
   done
 }
 
+set -e
+
 echo -e "-- Current setup --"
 echo -e "DEVICE.......: $MY_DEVICE"
 echo -e "SWAP_SIZE_MIB: $MY_SWAP_SIZE_MIB"
