@@ -159,7 +159,7 @@ pacman -Syu --noconfirm base base-devel sudo networkmanager \
   xf86-video-amdgpu intel-ucode
 
 # Enables sudo for the wheel group
-sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 # Installs yay
 sudo -u $MY_USERNAME /bin/bash <<EOF
