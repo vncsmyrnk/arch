@@ -177,7 +177,7 @@ systemctl enable systemd-networkd NetworkManager gdm
 # Final steps
 echo "All Done. Everything OK"
 read -p "Reboot? (Y/n): " reboot
-if [[ "$(to_lower "$reboot")" != "n" ]]; then
+if [[ "$(to_lower "$reboot")" -= "n" ]]; then
   exit 0
 fi
 
