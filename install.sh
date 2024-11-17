@@ -104,13 +104,11 @@ echo "Applying general config..."
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # "Change root into the new system"
-arch-chroot /mnt
-
+# Runs all of the following in it
+arch-chroot /mnt /bin/bash <<EOFF
 # Sets the timezone and clock
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 hwclock --systohc
-
-# Localization
 
 # Uses en_US.UTF-8
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
@@ -123,14 +121,10 @@ cat <<EOF > /etc/vconsole.conf
 KEYMAP=br-abnt
 EOF
 
-# Network
-
 # Sets hostname
 cat <<EOF > /etc/hostname
 $MY_HOSTNAME
 EOF
-
-# Other
 
 # Recreates the initramfs image
 mkinitcpio -P
@@ -148,8 +142,6 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 # Generates the main configuration file
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# User
-
 # Creates the user and adds it to the wheel group
 useradd -m -G wheel -s /bin/bash $MY_USERNAME
 
@@ -159,8 +151,7 @@ echo "$MY_USERNAME:$MY_PASSWORD" | chpasswd
 # Enables sudo for the wheel group
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
-# Install additional packages
-
+# Installs additional packages
 pacman -S base base-devel networkmanager \
   gnome gdm \
   kitty yay git \
@@ -171,7 +162,6 @@ prompt_for_package_installation mesa \
   xf86-video-amdgpu intel-ucode
 
 # Enables services
-
 systemctl enable systemd-networkd NetworkManager gdm
 
 # Final steps
@@ -186,3 +176,4 @@ umount -R /mnt
 
 # Reboots
 reboot
+EOFF
