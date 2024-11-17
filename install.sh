@@ -149,8 +149,8 @@ useradd -m -G wheel -s /bin/bash $MY_USERNAME
 echo "$MY_USERNAME:$MY_PASSWORD" | chpasswd
 
 # Installs additional packages
-pacman -S base base-devel networkmanager \
-  gnome gdm \
+pacman -Syu --noconfirm gnome gdm
+pacman -Syu --noconfirm base base-devel sudo networkmanager \
   kitty yay git \
   docker docker-buildx \
   neovim just google-chrome
