@@ -3,10 +3,10 @@
 # Performs arch linux installation
 # INFO: https://wiki.archlinux.org/title/Installation_guide
 
-MY_DEVICE=/dev/sda
-MY_SWAP_SIZE_MIB=8192
-MY_HOSTNAME=myarch
-MY_USERNAME=vncsmyrnk
+MY_DEVICE={$MY_DEVICE:-/dev/sda}
+MY_SWAP_SIZE_MIB={$MY_SWAP_SIZE_MIB:-8192}
+MY_HOSTNAME={$MY_HOSTNAME:-myarch}
+MY_USERNAME={$MY_USERNAME:-vncsmyrnk}
 
 to_lower() {
   echo "$1" | tr '[:upper:]' '[:lower:]'
