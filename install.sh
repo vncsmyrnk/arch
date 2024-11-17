@@ -170,6 +170,7 @@ EOF
 
 # Enables services
 systemctl enable systemd-networkd NetworkManager gdm
+EOFF
 
 # Final steps
 echo "All Done. Everything OK"
@@ -183,4 +184,3 @@ umount -R /mnt
 
 # Reboots
 reboot
-EOFF
