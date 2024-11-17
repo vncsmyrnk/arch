@@ -148,9 +148,6 @@ useradd -m -G wheel -s /bin/bash $MY_USERNAME
 # Sets the users password
 echo "$MY_USERNAME:$MY_PASSWORD" | chpasswd
 
-# Enables sudo for the wheel group
-sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
-
 # Installs additional packages
 pacman -S base base-devel networkmanager \
   gnome gdm \
@@ -160,6 +157,9 @@ pacman -S base base-devel networkmanager \
 
 prompt_for_package_installation mesa \
   xf86-video-amdgpu intel-ucode
+
+# Enables sudo for the wheel group
+sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 # Enables services
 systemctl enable systemd-networkd NetworkManager gdm
