@@ -158,6 +158,10 @@ pacman -Syu --noconfirm base base-devel sudo networkmanager \
 prompt_for_package_installation mesa \
   xf86-video-amdgpu intel-ucode
 
+# Installs yay
+git clone https://aur.archlinux.org/yay.git /home/$MY_USERNAME
+(cd /home/$MY_USERNAME && makepkg -si)
+
 # Enables sudo for the wheel group
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
