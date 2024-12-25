@@ -12,16 +12,6 @@ to_lower() {
   echo "$1" | tr '[:upper:]' '[:lower:]'
 }
 
-prompt_for_package_installation() {
-  for package in "$@"; do
-    read -p "Install $package? (Y/n): " install
-    if [[ "$(to_lower "$install")" == "n" ]]; then
-      continue
-    fi
-    pacman -S $package
-  done
-}
-
 set -e
 
 echo -e "-- Current setup --"
