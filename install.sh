@@ -147,6 +147,7 @@ pacman -Syu --noconfirm base base-devel sudo networkmanager \
   kitty git neovim just \
   docker docker-buildx \
   xf86-video-amdgpu intel-ucode
+  net-tools
 
 # Enables sudo for the wheel group
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
