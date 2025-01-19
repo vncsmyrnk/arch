@@ -49,3 +49,10 @@ ping 8.8.8.8 # for testing
 ```bash
 sudo pacman -S mesa xf86-video-amdgpu
 ```
+
+### Using system clipboard in vim
+
+Vim is useful during the installation for running the commands one by one. Using the system clipboard in this scenario is very useful.
+
+- Install `vim-gtk3`
+- Set the clipboard inside vim: `set clipboard=unnamedplus`
