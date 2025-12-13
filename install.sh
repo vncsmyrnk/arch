@@ -45,16 +45,16 @@ echo "Partitioning disk..."
 parted "$MY_DEVICE" --script mklabel gpt
 
 # sda1 /boot EFI
-parted "$MY_DEVICE" --script mkpart ESP fat32 1MiB 513MiB
+parted "$MY_DEVICE" --script mkpart EFI fat32 1MiB 513MiB
 parted "$MY_DEVICE" --script set 1 boot on
 
 # sda2 swap
-parted "$MY_DEVICE" --script mkpart primary linux-swap 513MiB $(($MY_SWAP_SIZE_MIB+513))MiB
+parted "$MY_DEVICE" --script mkpart swap linux-swap 513MiB $(($MY_SWAP_SIZE_MIB+513))MiB
 
 # sda3 /
-parted "$MY_DEVICE" --script mkpart primary ext4 4609MiB 100%
+parted "$MY_DEVICE" --script mkpart root ext4 $(($MY_SWAP_SIZE_MIB+513))MiB 100%
 
-# Formats the EFI System Partition (ESP)
+# Formats the EFI System Partition
 mkfs.fat -F32 "$MY_DEVICE"1
 
 # Formats the root (/) partition
