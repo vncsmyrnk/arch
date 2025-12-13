@@ -56,3 +56,11 @@ Vim is useful during the installation for running the commands one by one. Using
 
 - Install `vim-gtk3`
 - Set the clipboard inside vim: `set clipboard=unnamedplus`
+
+### Increase archiso disk space
+
+When needing space for installing packages on the archiso:
+
+```sh
+mount -o remount,size=1G /run/archiso/cow
+```
