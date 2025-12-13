@@ -3,6 +3,9 @@
 # Performs arch linux installation
 # INFO: https://wiki.archlinux.org/title/Installation_guide
 
+# You can either run this script or and commands invividually. The arch installation
+# image usually comes with tmux and vim.
+
 MY_DEVICE=${MY_DEVICE:-/dev/sda}
 MY_SWAP_SIZE_MIB=${MY_SWAP_SIZE_MIB:-8192}
 MY_HOSTNAME=${MY_HOSTNAME:-myarch}
@@ -33,12 +36,17 @@ if [[ "$(to_lower "$choice")" != "y" ]]; then
   exit 0
 fi
 
+# Use timedatectl(1) to ensure the system clock is synchronized
+timedatectl
+
 # Sets keyboard layout; `localectl list-keymaps` to see more
 echo "Setting keyboard layout..."
 loadkeys br-abnt
 
 # Disk partition
 # INFO: https://wiki.archlinux.org/title/EFI_system_partition
+# To list disks: `lsblk`; `fdisk -l`
+# To Check partitions: `parted "$MY_DEVICE" print`
 echo "Partitioning disk..."
 
 # Creates GPT partition table
@@ -76,6 +84,8 @@ mount --mkdir "$MY_DEVICE"1 /mnt/boot
 echo "Installing essential packages..."
 
 # Uses the closest mirrors; can later be updated with `reflector`
+# You can also edit /etc/pacman.d/mirrorlist manually and select just
+# the ones near you
 cat <<EOF > /etc/pacman.d/mirrorlist
 Server = http://arch.mirror.constant.com/\$repo/os/\$arch
 Server = https://archlinux.thaller.ws/\$repo/os/\$arch
@@ -121,7 +131,7 @@ EOF
 # Recreates the initramfs image
 mkinitcpio -P
 
-# Sets root password
+# Sets root password. Can be set with `passwd`
 echo "root:$MY_ROOT_PASSWORD" | chpasswd
 
 # Boot loader
