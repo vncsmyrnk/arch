@@ -99,7 +99,7 @@ arch-chroot /mnt /bin/bash <<EOFF
 set -e
 
 # Sets the timezone and clock
-ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc
 
 # Uses en_US.UTF-8
