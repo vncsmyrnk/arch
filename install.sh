@@ -176,6 +176,9 @@ EOF
 
 # Enables services
 systemctl enable systemd-networkd NetworkManager gdm
+
+# Generates locale
+locale-gen en_US.UTF-8
 EOFF
 
 # Final steps
