@@ -47,6 +47,7 @@ loadkeys br-abnt
 # INFO: https://wiki.archlinux.org/title/EFI_system_partition
 # To list disks: `lsblk`; `fdisk -l`
 # To Check partitions: `parted "$MY_DEVICE" print`
+# To erase existing partitions: use fdisk to remove each one
 echo "Partitioning disk..."
 
 # Creates GPT partition table
@@ -146,6 +147,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Creates the user and adds it to the wheel group
+# To set it manually: `passwd "$USERNAME"`
 useradd -m -G wheel -s /bin/bash $MY_USERNAME
 
 # Sets the users password
