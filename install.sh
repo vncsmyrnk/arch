@@ -157,9 +157,12 @@ echo "$MY_USERNAME:$MY_PASSWORD" | chpasswd
 pacman -Syu --noconfirm gnome gdm
 pacman -Syu --noconfirm base base-devel sudo networkmanager \
   kitty git neovim just \
-  docker docker-buildx \
-  xf86-video-amdgpu intel-ucode
-  net-tools
+  docker docker-buildx intel-ucode \
+  fastfetch net-tools
+
+# For drivers
+# https://wiki.archlinux.org/title/NVIDIA (usually `nvidia-open`)
+# https://wiki.archlinux.org/title/AMDGPU (usually `xf86-video-amdgpu`)
 
 # Enables sudo for the wheel group
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
