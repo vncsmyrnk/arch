@@ -21,6 +21,7 @@ MY_PASSWORD=password MY_ROOT_PASSWORD=root_password ./install.sh
 [GRUB Setup](https://bbs.archlinux.org/viewtopic.php?id=301301)
 [Reencrypt a device](https://unix.stackexchange.com/questions/444931/is-there-a-way-to-encrypt-disk-without-formatting-it)
 [GRUB regenerate the config file](https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file)
+[Removing system encryption](https://wiki.archlinux.org/title/Removing_system_encryption)
 
 ## Installation caveats
 
