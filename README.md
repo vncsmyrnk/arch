@@ -17,10 +17,10 @@ MY_PASSWORD=password MY_ROOT_PASSWORD=root_password ./install.sh
 
 ## Encrypting partitions
 
-[dm-crypt](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system)
-[GRUB Setup](https://bbs.archlinux.org/viewtopic.php?id=301301)
-[Reencrypt a device](https://unix.stackexchange.com/questions/444931/is-there-a-way-to-encrypt-disk-without-formatting-it)
-[GRUB regenerate the config file](https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file)
+[dm-crypt](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system)<br>
+[GRUB Setup](https://bbs.archlinux.org/viewtopic.php?id=301301)<br>
+[Reencrypt a device](https://unix.stackexchange.com/questions/444931/is-there-a-way-to-encrypt-disk-without-formatting-it)<br>
+[GRUB regenerate the config file](https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file)<br>
 [Removing system encryption](https://wiki.archlinux.org/title/Removing_system_encryption)
 
 ## Installation caveats
