@@ -72,3 +72,11 @@ When needing space for installing packages on the archiso:
 ```sh
 mount -o remount,size=1G /run/archiso/cow
 ```
+
+## Best practices
+
+### LTS kernel
+
+Install `linux-lts` and `linux-lts-headers` alongside `linux` and `linux-headers`. The LTS kernel can be useful if some regression problem on kernel updates.
+
+When using GRUB, regenerate the configuration file. This ensures the LTS kernel appears on "Advanced options" section.
