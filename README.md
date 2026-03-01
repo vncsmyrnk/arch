@@ -54,9 +54,19 @@ ping 8.8.8.8 # for testing
 
 ### GPU Drivers
 
+#### AMD
+
 ```bash
 sudo pacman -S mesa xf86-video-amdgpu
 ```
+
+#### NVIDIA
+
+```bash
+sudo pacman -S mesa nvidia-open
+```
+
+Make sure to also install `envycontrol` for switching between integrated and dedicated cards and  `nvtop` to monitor GPU usage.
 
 ### Using system clipboard in vim
 
