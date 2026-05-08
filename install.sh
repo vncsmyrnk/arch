@@ -81,6 +81,19 @@ mount "$MY_DEVICE"3 /mnt
 # Mounts the EFI partition
 mount --mkdir "$MY_DEVICE"1 /mnt/boot
 
+# EXPERIMENTAL
+# Encrypt swap: https://wiki.archlinux.org/title/Dm-crypt/Swap_encryption
+# Example:
+# /etc/crypttab: swapdevice  /dev/sda2  /dev/urandom  swap,cipher=aes-xts-plain64,size=256
+# /etc/fstap: /dev/mapper/swapdevice  none  swap  defaults  0  0
+
+# EXPERIMENTAL
+# Mouting /tmp as tmpfs: https://wiki.archlinux.org/title/Tmpfs
+# Example:
+# /etc/fstab: tmpfs /tmp  tmpfs  rw,nodev,nosuid,size=50%  0  0
+# To change it ad hoc: sudo mount -o remount,size=80% /tmp
+# To mount it back to disk when needed: mkdir -p ~/ssd_tmp; sudo mount --bind ~/ssd_tmp /tmp
+
 # Install essential packages
 echo "Installing essential packages..."
 
